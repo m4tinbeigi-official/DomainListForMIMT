@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فهرست دامنه‌های دارای نماد تجارت الکترونیکی (MIMT)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0a0d14;
+            --bg-card: #121824;
+            --bg-subtle: #1a2234;
+            --border-color: #242f48;
+            --text-primary: #f0f4fc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-blue: #2563eb;
+            --accent-blue-hover: #1d4ed8;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .stat-badge {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .actions-panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .search-input-wrap {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            background-color: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-item {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-blue-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-subtle);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 13px;
+        }
+
+        th {
+            background-color: var(--bg-subtle);
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .domain-link {
+            color: #60a5fa;
+            text-decoration: none;
+            direction: ltr;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .domain-link:hover {
+            text-decoration: underline;
+        }
+
+        .phone-text, .email-text {
+            direction: ltr;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .badge-star {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--accent-amber);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .badge-zero {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            background-color: rgba(148, 163, 184, 0.1);
+            color: var(--text-muted);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .badge-seal {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 12px;
+            padding: 3px 8px;
+            background-color: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .badge-seal:hover {
+            background-color: rgba(56, 189, 248, 0.2);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 4px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .page-info {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .page-controls {
+            display: flex;
+            gap: 6px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 16px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>فهرست دامنه‌های سامانه نماد تجارت الکترونیکی (MIMT)</h1>
+                    <p class="subtitle">پایگاه داده دامنه‌ها، اطلاعات تماس، تلفن، ایمیل و شناسنامه اینماد کسب‌وکارهای ثبت شده</p>
+                </div>
+                <div class="btn-group">
+                    <a href="domains.csv" download class="btn btn-primary">دانلود فایل CSV</a>
+                    <a href="domains.json" download class="btn btn-outline">دانلود فایل JSON</a>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-badge">
+                    <span>مجموع دامنه‌ها:</span>
+                    <span id="stat-total" class="stat-value">0</span>
+                </div>
+                <div class="stat-badge">
+                    <span>دارای شماره تلفن:</span>
+                    <span id="stat-phone" class="stat-value">0</span>
+                </div>
+                <div class="stat-badge">
+                    <span>دارای ایمیل:</span>
+                    <span id="stat-email" class="stat-value">0</span>
+                </div>
+                <div class="stat-badge">
+                    <span>نتایج فیلتر:</span>
+                    <span id="stat-filtered" class="stat-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="actions-panel">
+            <div class="search-row">
+                <div class="search-input-wrap">
+                    <input type="text" id="searchInput" placeholder="جستجو بر اساس نام دامنه، عنوان، نام صاحب، شماره تماس یا ایمیل...">
+                </div>
+            </div>
+            <div class="filter-row">
+                <div class="filter-item">
+                    <select id="provinceFilter">
+                        <option value="">همه استان‌ها</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <select id="ratingFilter">
+                        <option value="">همه رتبه‌ها</option>
+                        <option value="0">بدون ستاره (پایه)</option>
+                        <option value="1">یک ستاره</option>
+                        <option value="2">دو ستاره</option>
+                        <option value="3">سه ستاره</option>
+                        <option value="4">چهار ستاره</option>
+                        <option value="5">پنج ستاره</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <select id="contactFilter">
+                        <option value="">همه رکوردها</option>
+                        <option value="phone">فقط دارای تلفن</option>
+                        <option value="email">فقط دارای ایمیل</option>
+                        <option value="both">دارای تلفن و ایمیل</option>
+                    </select>
+                </div>
+                <div class="btn-group">
+                    <button id="resetFiltersBtn" class="btn btn-outline">بازنشانی فیلترها</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">ردیف</th>
+                        <th>دامنه</th>
+                        <th>عنوان کسب‌وکار</th>
+                        <th>صاحب امتیاز</th>
+                        <th>تلفن تماس</th>
+                        <th>پست الکترونیکی</th>
+                        <th>استان / شهر</th>
+                        <th>رتبه</th>
+                        <th>شناسنامه</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="9" class="empty-state">در حال بارگذاری اطلاعات...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <div class="page-info" id="pageInfo">نمایش ۰ تا ۰ از ۰ رکورد</div>
+            <div class="page-controls">
+                <button id="prevPageBtn" class="btn btn-outline">صفحه قبل</button>
+                <button id="nextPageBtn" class="btn btn-outline">صفحه بعد</button>
+            </div>
+        </div>
+
+        <footer>
+            منبع داده: مرکز توسعه تجارت الکترونیکی (وزارت صنعت، معدن و تجارت) | به‌روزرسانی مداوم
+        </footer>
+    </div>
+
+    <script>
+        let allDomains = [];
+        let filteredDomains = [];
+        let currentPage = 1;
+        const pageSize = 30;
+
+        async function loadData() {
+            try {
+                const res = await fetch('domains.json');
+                allDomains = await res.json();
+                initProvinces();
+                updateStats();
+                applyFilters();
+            } catch (err) {
+                document.getElementById('tableBody').innerHTML = `
+                    <tr>
+                        <td colspan="9" class="empty-state" style="color: #ef4444;">
+                            خطا در بارگذاری اطلاعات. لطفا از اجرای سرور یا در دسترس بودن domains.json اطمینان حاصل کنید.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        function initProvinces() {
+            const select = document.getElementById('provinceFilter');
+            const provinces = new Set();
+            allDomains.forEach(d => {
+                if (d.province && d.province.trim() !== '') {
+                    provinces.add(d.province.trim());
+                }
+            });
+            Array.from(provinces).sort().forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p;
+                opt.textContent = p;
+                select.appendChild(opt);
+            });
+        }
+
+        function updateStats() {
+            const total = allDomains.length;
+            const withPhone = allDomains.filter(d => d.phone && d.phone.trim() !== '').length;
+            const withEmail = allDomains.filter(d => d.email && d.email.trim() !== '').length;
+
+            document.getElementById('stat-total').textContent = total.toLocaleString('fa-IR');
+            document.getElementById('stat-phone').textContent = withPhone.toLocaleString('fa-IR');
+            document.getElementById('stat-email').textContent = withEmail.toLocaleString('fa-IR');
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const province = document.getElementById('provinceFilter').value;
+            const rating = document.getElementById('ratingFilter').value;
+            const contact = document.getElementById('contactFilter').value;
+
+            filteredDomains = allDomains.filter(item => {
+                if (query) {
+                    const matchDomain = (item.domain_address || '').toLowerCase().includes(query);
+                    const matchName = (item.persian_name || '').toLowerCase().includes(query);
+                    const matchOwner = (item.owner || '').toLowerCase().includes(query);
+                    const matchPhone = (item.phone || '').toLowerCase().includes(query);
+                    const matchEmail = (item.email || '').toLowerCase().includes(query);
+                    const matchCity = (item.city || '').toLowerCase().includes(query);
+                    if (!matchDomain && !matchName && !matchOwner && !matchPhone && !matchEmail && !matchCity) {
+                        return false;
+                    }
+                }
+                if (province && item.province !== province) {
+                    return false;
+                }
+                if (rating !== '' && String(item.rating) !== rating) {
+                    return false;
+                }
+                if (contact === 'phone' && (!item.phone || item.phone.trim() === '')) {
+                    return false;
+                }
+                if (contact === 'email' && (!item.email || item.email.trim() === '')) {
+                    return false;
+                }
+                if (contact === 'both' && ((!item.phone || item.phone.trim() === '') || (!item.email || item.email.trim() === ''))) {
+                    return false;
+                }
+                return true;
+            });
+
+            document.getElementById('stat-filtered').textContent = filteredDomains.length.toLocaleString('fa-IR');
+            currentPage = 1;
+            renderTable();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            if (filteredDomains.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9" class="empty-state">موردی مطابق با فیلترهای انتخابی یافت نشد.</td>
+                    </tr>
+                `;
+                document.getElementById('pageInfo').textContent = 'نمایش ۰ از ۰';
+                document.getElementById('prevPageBtn').disabled = true;
+                document.getElementById('nextPageBtn').disabled = true;
+                return;
+            }
+
+            const total = filteredDomains.length;
+            const totalPages = Math.ceil(total / pageSize);
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            const startIdx = (currentPage - 1) * pageSize;
+            const endIdx = Math.min(startIdx + pageSize, total);
+            const pageData = filteredDomains.slice(startIdx, endIdx);
+
+            pageData.forEach((d, i) => {
+                const tr = document.createElement('tr');
+                const rowNum = (startIdx + i + 1).toLocaleString('fa-IR');
+                const loc = [d.province, d.city].filter(Boolean).join(' - ') || '-';
+                const ratingBadge = d.rating > 0 
+                    ? `<span class="badge-star">${d.rating} ستاره</span>`
+                    : `<span class="badge-zero">پایه</span>`;
+
+                const sealLink = d.enamad_url 
+                    ? `<a href="${d.enamad_url}" target="_blank" rel="noopener" class="badge-seal">مشاهده</a>`
+                    : '-';
+
+                tr.innerHTML = `
+                    <td>${rowNum}</td>
+                    <td><a href="https://${d.domain_address}" target="_blank" rel="noopener" class="domain-link">${d.domain_address}</a></td>
+                    <td>${d.persian_name || '-'}</td>
+                    <td>${d.owner || '-'}</td>
+                    <td><span class="phone-text">${d.phone || '-'}</span></td>
+                    <td><span class="email-text">${d.email || '-'}</span></td>
+                    <td>${loc}</td>
+                    <td>${ratingBadge}</td>
+                    <td>${sealLink}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('pageInfo').textContent = `نمایش ${ (startIdx + 1).toLocaleString('fa-IR') } تا ${ endIdx.toLocaleString('fa-IR') } از ${ total.toLocaleString('fa-IR') } رکورد`;
+            document.getElementById('prevPageBtn').disabled = currentPage <= 1;
+            document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('provinceFilter').addEventListener('change', applyFilters);
+        document.getElementById('ratingFilter').addEventListener('change', applyFilters);
+        document.getElementById('contactFilter').addEventListener('change', applyFilters);
+
+        document.getElementById('resetFiltersBtn').addEventListener('click', () => {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('provinceFilter').value = '';
+            document.getElementById('ratingFilter').value = '';
+            document.getElementById('contactFilter').value = '';
+            applyFilters();
+        });
+
+        document.getElementById('prevPageBtn').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+            }
+        });
+
+        document.getElementById('nextPageBtn').addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredDomains.length / pageSize);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+            }
+        });
+
+        loadData();
+    </script>
+</body>
+</html>
